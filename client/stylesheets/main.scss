@@ -5,3 +5,42 @@ body {
   font: 100% $font-stack;
   background: $primary-color;
 }
+
+.myFont {
+  font-size: 390px !important;
+}
+
+.card-size {
+  width: 33%;
+}
+
+.fish-img {
+  width: 80%;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.myContainer {
+   margin-bottom: 10%;
+}
+
+.fish-flex {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+.center-flexbox {
+  display: flex;
+  justify-content: center;
+}
+.card-flex {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+}
+
+.form_fish {
+  margin-bottom: 50px;
+}
