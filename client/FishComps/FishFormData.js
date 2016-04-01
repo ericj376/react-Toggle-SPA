@@ -11,6 +11,9 @@ var FishFormData = React.createClass({
       img: null
     }
   },
+  contextTypes: {
+    sendNotification: React.PropTypes.func.isRequired
+  },
   onNameChange: function(e){
     this.setState({ fishName: e.target.value })
   },
@@ -42,11 +45,12 @@ var FishFormData = React.createClass({
       method: 'POST',
       data: fishData 
     }).done(function(data) {
-      self.loadAllFishFromServer();
+      self.props.toggleActiveComp('fish');
+      self.context.sendNotification('Added Fish!!!!!!');
     }).fail(function(err) {
       console.log(err);
       alert("Create Fish Failed!");
-      self.props.toggleActiveComp('fish');
+      
     });
     this.setState({
       name: '',

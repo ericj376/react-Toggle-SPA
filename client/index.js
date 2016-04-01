@@ -2,12 +2,13 @@ var React = require('react');
 var ReactDom = require('react-dom');
 var NavBar = require('./NavBar');
 var Footer = require('./Footer')
-var Welcome = require('./Welcome')
-var Cookies = require('./Cookies')
-var FishApp = require('./FishApp')
-var Bears = require('./Bears')
-var Beer = require('./Beer')
-require('./stylesheets/main.scss')
+var Welcome = require('./Welcome');
+var Cookies = require('./Cookies');
+var FishApp = require('./FishApp');
+var Bears = require('./Bears');
+var Beer = require('./Beer');
+var Notifier= require('./Notifier');
+require('./stylesheets/main.scss');
 
 
 var App = React.createClass({
@@ -45,15 +46,15 @@ var App = React.createClass({
   render: function(){
     return (
       
-    <div>
-      
+  <div>
+    <Notifier>
       <NavBar setActiveComponent={this.setActiveComponent}/>
         <div>
           {this.showWhichComponent()}
         </div>
       <Footer />
-      
-    </div>
+    </Notifier> 
+  </div>
       )
   }
 })
