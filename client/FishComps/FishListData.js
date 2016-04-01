@@ -13,7 +13,7 @@ var FishListData = React.createClass({
     $.ajax({
       url: '/api/fish' ,
       method: 'GET'
-    }).done((data) => this.setState({ allFish: data }));
+    }).done(data => this.setState({ allFish: data }));
 
   },
 
@@ -22,7 +22,7 @@ var FishListData = React.createClass({
   },
 
   render: function(){
-    return this.state.allFish ? <FishList fishArray={this.state.allFish} /> : <Loader />;
+    return this.state.allFish ? <FishList fishArray={this.state.allFish} getId={ this.props.getId }/> : <Loader />;
   },
 });
 

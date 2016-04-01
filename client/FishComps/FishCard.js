@@ -1,18 +1,16 @@
 var React = require('react');
 
-var FishCard = React.createClass({
-  render: function() {
+function FishCard(props){
     return (
       <div className="card card-size">
         <img className="card-img-top fish-img" 
-        src={ this.props.img } alt="some fish"/>
+        src={ props.img } alt="some fish"/>
         <div className="card-block card-flex">
-          <h4 className="card-title">{ this.props.name }</h4>
-          <a href="#" className="btn btn-primary">GO</a>
+          <h4 className="card-title">{ props.name }</h4>
+          <button onClick={ props.getId.bind(null, props.id) } className="btn btn-primary">GO</button>
         </div>
       </div>
       )
-  }
-});
+};
 
 module.exports = FishCard;
