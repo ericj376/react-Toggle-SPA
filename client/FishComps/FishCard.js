@@ -8,6 +8,7 @@ function FishCard(props){
         <div className="card-block card-flex">
           <h4 className="card-title">{ props.name }</h4>
           <button onClick={ props.getId.bind(null, props.id) } className="btn btn-primary">GO</button>
+          <button onClick={ props.deleteFish.bind(null, props.id) } className="btn btn-primary">DELETE</button>
         </div>
       </div>
       )

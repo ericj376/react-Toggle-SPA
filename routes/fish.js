@@ -38,6 +38,8 @@ router.route('/')
  });
 
 
+
+
 //without one_fish, next route would conflict...
 
 router.route('/one_fish/:fish_id')
@@ -50,7 +52,38 @@ router.route('/one_fish/:fish_id')
        res.json(fish);
      }
    })
- });
+ })
+ .put(function(req, res){
+  Fish.findById(req.params.fish_id, function(err, fish){
+    if(err){
+      res.status(500).send(err, 'Something broke!');
+    } else {
+      
+      fish.name = req.body.name ? req.body.name : fish.name,
+      fish.color = req.body.color ? req.body.color : fish.color,
+      fish.people_eater = req.body.people_eater ? req.body.people_eater : fish.people_eater,
+      fish.length = req.body.length ? req.body.length : fish.length,
+      fish.img = req.body.img ? req.body.img : fish.img,
+
+      fish.save(function(err){
+        if (err){
+          res.status(500).send(err, 'Something broke!');
+        } else {
+          res.json({title: 'Fish Updated'});
+        }
+      })
+    }
+  })
+})
+   .delete(function(req, res){
+    Fish.remove({_id: req.params.fish_id}, function(err, fish){
+    if (err){
+      res.status(500).send(err, 'Something broke!');
+    } else {
+      res.json({title:" Fish Deleted Successfully"})
+    }
+  })
+});
 
 // /api/fish/man_eater
 router.route('/man_eater')
